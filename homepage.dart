@@ -9,10 +9,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
-  String name = '';
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,30 +16,17 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Container(
-              width: 200,
-              child: TextField(
-                decoration: InputDecoration(hintText: 'Enter Your Name', ),
-
-                onChanged: (value){
-                  setState(() {
-                    name = value;
-                  });
-
-                },
-
-              ),
-            ),
             SizedBox(height: 50),
             ElevatedButton(
-              style: ElevatedButton.styleFrom(minimumSize: Size(150, 50),),
+              style: ElevatedButton.styleFrom(
+                minimumSize: Size(150, 50),
+              ),
               onPressed: () {
-                print(name);
-                Navigator.push(context, MaterialPageRoute(builder: (context)=> QuizPage(recievedName: name,)));
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => QuizPage()));
               },
               child: Text('Start Quiz'),
             ),
-
           ],
         ),
       ),
